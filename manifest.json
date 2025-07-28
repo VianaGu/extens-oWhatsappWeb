@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Prefixador de Nome no WhatsApp Web",
+  "name": "CRM WhatsApp Web",
   "version": "1.0.1",
   "description": "Insere automaticamente seu nome antes das mensagens enviadas no WhatsApp Web.",
   "permissions": ["storage", "scripting"],
