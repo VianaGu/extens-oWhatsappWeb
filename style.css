@@ -1,0 +1,19 @@
+#painel-nome {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 9999;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+#painel-nome input {
+  width: 140px;
+  padding: 4px;
+  margin-top: 5px;
+}
