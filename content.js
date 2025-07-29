@@ -33,7 +33,7 @@ function criarPainel() {
           padding: 0 5px; color: #333;
         ">−</button>
       </div>
-      <input type="text" id="input-nome" value="${nomeAtual}" style="
+      <input type="text" id="input-nome" value="${nomeAtual}" placeholder="Digite um nome" style="
         width: 100%; box-sizing: border-box; padding: 5px; font-size: 13px; border: 1px solid #ccc; border-radius: 3px;
       "/>
       <button id="btn-salvar" style="
@@ -71,13 +71,7 @@ function criarPainel() {
   const btnBolinha = document.getElementById("btn-bolinha");
   const painelConteudo = document.getElementById("painel-conteudo");
 
-  // Inicia minimizado
-  painelConteudo.style.display = "none";
-  painel.style.width = "40px";
-  painel.style.height = "40px";
-  painel.style.padding = "0";
-  painel.style.borderRadius = "50%";
-  btnBolinha.style.display = "block";
+  inputNome.focus(); // Foco automático ao abrir
 
   btnSalvar.addEventListener("click", () => {
     salvarNome(inputNome.value);
@@ -88,7 +82,7 @@ function criarPainel() {
       e.preventDefault();
       salvarNome(inputNome.value);
       minimizarPainel();
-      setTimeout(() => inserirPrefixoNoInput(), 100); // pequeno delay para garantir foco
+      setTimeout(() => inserirPrefixoNoInput(), 100);
     }
   });
 
@@ -103,13 +97,22 @@ function criarPainel() {
     painel.style.padding = "8px";
     painel.style.borderRadius = "4px";
     btnBolinha.style.display = "none";
-    inputNome.value = "";
-    inputNome.focus();
+    inputNome.focus(); // Foco ao restaurar
   });
+
+  // Inicia minimizado
+  painelConteudo.style.display = "none";
+  painel.style.width = "40px";
+  painel.style.height = "40px";
+  painel.style.padding = "0";
+  painel.style.borderRadius = "50%";
+  btnBolinha.style.display = "block";
 }
 
 function salvarNome(novoNome) {
   nomeAtual = novoNome.trim();
+  chrome.storage.local.set({ nomePersonalizado: nomeAtual });
+
   const btnSalvar = document.getElementById("btn-salvar");
   if (btnSalvar) {
     btnSalvar.textContent = "Salvo!";
@@ -132,6 +135,23 @@ function minimizarPainel() {
   }
 }
 
+function restaurarPainel() {
+  const painel = document.getElementById("painel-nome");
+  const painelConteudo = document.getElementById("painel-conteudo");
+  const btnBolinha = document.getElementById("btn-bolinha");
+  const inputNome = document.getElementById("input-nome");
+
+  if (painel && painelConteudo && btnBolinha) {
+    painelConteudo.style.display = "block";
+    painel.style.width = "200px";
+    painel.style.height = "auto";
+    painel.style.padding = "8px";
+    painel.style.borderRadius = "4px";
+    btnBolinha.style.display = "none";
+    inputNome?.focus();
+  }
+}
+
 function monitorarConversa() {
   let ultimaConversa = null;
 
@@ -144,6 +164,7 @@ function monitorarConversa() {
       ultimaConversa = conversaAtual;
       setTimeout(() => monitorarInput(), 500);
       limparCampoSeNaoEstaNaConversa();
+      restaurarPainel();
     }
   });
 
