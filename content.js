@@ -71,7 +71,7 @@ function criarPainel() {
   const btnBolinha = document.getElementById("btn-bolinha");
   const painelConteudo = document.getElementById("painel-conteudo");
 
-  inputNome.focus(); // Foco automático ao abrir
+  inputNome.focus();
 
   btnSalvar.addEventListener("click", () => {
     salvarNome(inputNome.value);
@@ -97,7 +97,7 @@ function criarPainel() {
     painel.style.padding = "8px";
     painel.style.borderRadius = "4px";
     btnBolinha.style.display = "none";
-    inputNome.focus(); // Foco ao restaurar
+    inputNome.focus();
   });
 
   // Inicia minimizado
@@ -164,7 +164,7 @@ function monitorarConversa() {
       ultimaConversa = conversaAtual;
       setTimeout(() => monitorarInput(), 500);
       limparCampoSeNaoEstaNaConversa();
-      restaurarPainel();
+      // restaurarPainel(); ← Linha removida para não reabrir o painel automaticamente
     }
   });
 
