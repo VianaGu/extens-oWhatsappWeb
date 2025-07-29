@@ -4,7 +4,7 @@
   "version": "1.0.1",
   "description": "Insere automaticamente seu nome antes das mensagens enviadas no WhatsApp Web.",
   "author":"Gustavo Oliveira Viana",
-  "permissions": ["storage", "scripting"],
+  "permissions": ["storage", "scripting","activeTab"],
   "content_scripts": [
     {
       "matches": ["https://web.whatsapp.com/*"],
