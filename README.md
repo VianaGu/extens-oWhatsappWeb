@@ -19,6 +19,7 @@ Este projeto é uma extensão do Chrome que adiciona um painel flutuante no What
 
 Se o nome configurado for **João** e você digitar:
 
+Olá, tudo bem?
 
 A mensagem enviada será:
 
