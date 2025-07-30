@@ -149,6 +149,7 @@ function restaurarPainel() {
     painel.style.borderRadius = "4px";
     btnBolinha.style.display = "none";
     inputNome?.focus();
+    inputNome.select();
   }
 }
 
