@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "CRM WhatsApp Web",
-  "version": "1.5.1",
+  "version": "2.0.1",
   "description": "Insere automaticamente seu nome antes das mensagens enviadas no WhatsApp Web.",
   "author":"Gustavo Oliveira Viana",
   "permissions": ["storage", "scripting","activeTab"],
