@@ -231,3 +231,12 @@ function posicionarCursor(element, pos) {
   selection.removeAllRanges();
   selection.addRange(range);
 }
+document.addEventListener("keydown", e => {
+  const isCtrlDown = e.ctrlKey || e.metaKey; // Suporta Mac também (cmd)
+  const isArrowDown = e.key === "ArrowDown";
+
+  if (isCtrlDown && isArrowDown) {
+    e.preventDefault();
+    restaurarPainel();
+  }
+});
