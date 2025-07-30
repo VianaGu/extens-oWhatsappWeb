@@ -6,12 +6,13 @@ Este projeto é uma extensão do Chrome que adiciona um painel flutuante no What
 
 ## 📌 Funcionalidades
 
-- ✅ Painel flutuante com campo de entrada para definir um prefixo (nome).
-- ✅ Armazenamento local do nome com `chrome.storage.local`.
-- ✅ Painel minimizável/restaurável com botão circular.
-- ✅ Prefixo é automaticamente inserido ao enviar mensagens.
-- ✅ Detecta mudanças de conversa no WhatsApp Web.
-- ✅ Auto foco e restauração ao alternar de conversa.
+- ✅ Painel flutuante com campo para configurar prefixo (nome).  
+- ✅ Armazenamento persistente com `chrome.storage.local`.  
+- ✅ Painel minimizável/restaurável com botão circular.  
+- ✅ Prefixo adicionado automaticamente ao pressionar **Enter**.  
+- ✅ Detecta mudanças de conversa no WhatsApp Web.  
+- ✅ Restauração manual do painel com **Ctrl + ↓**.  
+- ✅ Texto do input automaticamente **selecionado ao abrir o painel**.
 
 ---
 
@@ -61,6 +62,17 @@ João: Olá, tudo bem?
 ### 🔹 `inserirPrefixoNoInput()`
 
 - Usado para preencher o campo com o prefixo ao restaurar a conversa ou painel.
+
+---
+
+## 🔑 Atalho de Teclado
+
+Pressione:
+
+Ctrl + ↓
+
+
+Para restaurar rapidamente o painel (caso esteja minimizado).
 
 ---
 
